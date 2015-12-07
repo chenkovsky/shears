@@ -241,9 +241,9 @@ the given number of items are cut or reserved, because some items may
 contains high level children, so could not be cut.
 param <count> format example: 1=100 2=3000 3=4000
 Usage:
-    lmprune entropy (reserve|cut) [--debug] [--important=important_ngram] <src_model> <dst_model> <count>...
-    lmprune (-h | --help)
-    lmprune --version
+    shears entropy (reserve|cut) [--debug] [--important=important_ngram] <src_model> <dst_model> <count>...
+    shears (-h | --help)
+    shears --version
 
 Options:
     -h --help     Show this screen.
