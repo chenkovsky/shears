@@ -75,7 +75,6 @@ public:
       size_t gram_id = 0;
       size_t context_id = 0;
 
-      unsigned prunedNgrams = 0;
 
       BOnode *node;
       NgramBOsIter iter1(*this, context, i);
@@ -105,7 +104,6 @@ public:
         VocabIndex word;
         LogP *ngramProb;
 
-        Boolean allPruned = true;
         size_t word_num_cur_context = 0;
         while ((ngramProb = piter.next(word))) {
           word_num_cur_context++;
