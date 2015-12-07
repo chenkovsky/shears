@@ -48,7 +48,6 @@ public:
      * Hack alert: allocate the context buffer for NgramBOsIter, but leave
      * room for a word id to be prepended.
      */
-    double threshold = 5e-7;
     makeArray(VocabIndex, wordPlusContext, order + 2);
     VocabIndex *context = &wordPlusContext[1];
 
@@ -146,7 +145,6 @@ public:
           entropys[gram_id].context_id = context_id;
           gram_id += 1;
           assert(gram_id <= gram_num);
-
         }
         word_num_per_context[context_id] = word_num_cur_context;
         context_id++;
@@ -162,6 +160,7 @@ public:
       cerr << "[PRUNING] removing..." << endl;
       NgramBOsIter iter2(*this, context, i);
       gram_id = 0;
+      context_id = 0;
       while ((node = iter2.next())) {
         double numerator, denominator;
         if (!computeBOW(node, context, i, numerator, denominator)) {
@@ -186,6 +185,7 @@ public:
           }
           gram_id++;
         }
+        context_id++;
       }
 
       free(word_num_per_context);
